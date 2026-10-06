@@ -1,0 +1,1936 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #eaf7ff;
+    color: #23415f;
+    font-family: "Montserrat", sans-serif;
+}
+
+.invitacion {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* ==================================================
+   PORTADA
+================================================== */
+
+.portada {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255,255,255,0.95) 0%,
+            rgba(231,247,255,0.8) 35%,
+            rgba(184,224,244,0.95) 100%
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* BRILLOS DECORATIVOS */
+
+.portada::before,
+.portada::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation: flotar 8s ease-in-out infinite;
+}
+
+.portada::before {
+    width: 420px;
+    height: 420px;
+
+    top: -220px;
+    left: -180px;
+
+    background: rgba(255,255,255,0.35);
+}
+
+.portada::after {
+    width: 360px;
+    height: 360px;
+
+    bottom: -190px;
+    right: -150px;
+
+    background: rgba(255,255,255,0.3);
+
+    animation-delay: -4s;
+}
+
+
+/* ENCABEZADO */
+
+.pequeno {
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 18px;
+
+    color: #527b98;
+
+    font-weight: 500;
+
+    animation: aparecer 1.2s ease both;
+}
+
+
+/* TITULO */
+
+.portada h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(70px, 16vw, 125px);
+
+    font-weight: 400;
+
+    margin-bottom: 8px;
+
+    color: #245b82;
+
+    letter-spacing: 2px;
+
+    line-height: 1;
+
+    animation:
+        aparecerTitulo 1.4s ease both,
+        brilloTitulo 4s ease-in-out 2s infinite;
+}
+
+
+/* ORNAMENTO */
+
+.ornamento {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 10px 0 18px;
+
+    animation: aparecer 1.6s ease both;
+}
+
+.ornamento span {
+    width: 65px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #75afd0
+        );
+}
+
+.ornamento span:last-child {
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            #75afd0
+        );
+}
+
+.ornamento i {
+    font-size: 15px;
+
+    color: #4f91b8;
+
+    font-style: normal;
+
+    animation: brillo 2.5s ease-in-out infinite;
+}
+
+
+/* NOMBRE */
+
+.nombre {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(24px, 5vw, 34px);
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 12px;
+
+    color: #2d668d;
+
+    text-transform: uppercase;
+
+    animation: aparecer 1.8s ease both;
+}
+
+
+/* FRASE */
+
+.frase-portada {
+    max-width: 430px;
+
+    color: #58758c;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    margin-bottom: 35px;
+
+    animation: aparecer 2.2s ease both;
+}
+
+
+/* EMOJIS */
+
+.emoji-apple {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 3px;
+
+    vertical-align: middle;
+}
+
+.emoji-apple img {
+    width: 19px;
+    height: 19px;
+
+    object-fit: contain;
+
+    display: inline-block;
+}
+
+
+/* ==================================================
+   INFORMACION
+================================================== */
+
+.informacion {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #dff3ff 0%,
+            #edf9ff 50%,
+            #ffffff 100%
+        );
+}
+
+.informacion h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(32px, 9vw, 55px);
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+
+    color: #245b82;
+}
+
+.informacion > p {
+    color: #58758c;
+
+    max-width: 420px;
+
+    line-height: 1.7;
+
+    margin-bottom: 50px;
+}
+
+
+/* ==================================================
+   DATOS
+================================================== */
+
+.datos {
+    width: 100%;
+
+    max-width: 450px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    margin-bottom: 45px;
+}
+
+.dato {
+    border-top: 1px solid #a8d6ec;
+
+    padding: 20px;
+
+    background: rgba(255,255,255,0.45);
+
+    border-radius: 12px;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    animation: subirDato 0.8s ease forwards;
+}
+
+.dato:last-child {
+    border-bottom: 1px solid #a8d6ec;
+}
+
+.dato span {
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #6792ad;
+
+    margin-bottom: 8px;
+}
+
+.dato strong {
+    font-size: 17px;
+
+    font-weight: normal;
+
+    color: #315d78;
+}
+
+
+/* ANIMACION DE LOS DATOS */
+
+.dato:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.dato:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.dato:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+@keyframes subirDato {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==================================================
+   CALENDARIO
+================================================== */
+
+.dato-fecha {
+    padding: 22px 20px 25px;
+}
+
+.calendario {
+    width: 100%;
+
+    max-width: 300px;
+
+    margin: 10px auto 0;
+
+    padding: 18px;
+
+    background: rgba(255,255,255,0.72);
+
+    border: 1px solid rgba(168,214,236,0.8);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 30px rgba(62,139,180,0.10);
+
+    animation:
+        aparecerCalendario 1s ease both;
+}
+
+.calendario-cabecera {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 14px;
+
+    margin-bottom: 12px;
+
+    border-bottom: 1px solid #c8e4f2;
+}
+
+.calendario-cabecera span {
+    font-family: "Playfair Display", serif;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+    color: #315d78;
+}
+
+.calendario-cabecera strong {
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #6792ad;
+}
+
+.dias-semana,
+.dias {
+    display: grid;
+
+    grid-template-columns: repeat(7,1fr);
+
+    gap: 5px;
+
+    text-align: center;
+}
+
+.dias-semana span {
+    font-size: 9px;
+
+    font-weight: 600;
+
+    color: #6792ad;
+
+    padding-bottom: 7px;
+}
+
+.dias span {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 32px;
+
+    font-size: 11px;
+
+    color: #527b98;
+
+    border-radius: 50%;
+}
+
+.dias span:not(:empty):hover {
+    background: rgba(168,214,236,0.35);
+
+    transform: scale(1.08);
+}
+
+.dia-especial {
+    background: #5aa9d2 !important;
+
+    color: white !important;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 6px 16px rgba(62,139,180,0.25);
+
+    animation:
+        pulsarFecha 2.5s ease-in-out infinite;
+}
+
+.dia-especial b {
+    position: relative;
+
+    z-index: 2;
+
+    font-weight: 600;
+}
+
+.dia-especial i {
+    position: absolute;
+
+    top: -7px;
+
+    right: -3px;
+
+    font-size: 9px;
+
+    color: white;
+
+    font-style: normal;
+}
+
+@keyframes aparecerCalendario {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes pulsarFecha {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+/* ==================================================
+   HORA DE LOS 15 AÑOS
+================================================== */
+
+.dato-hora {
+    padding: 24px 20px 28px;
+
+    overflow: hidden;
+}
+
+.hora-lujo {
+    position: relative;
+
+    width: 320px;
+
+    max-width: 100%;
+
+    margin: 12px auto 0;
+
+    padding: 18px 10px;
+
+    text-align: center;
+}
+
+
+/* ARO */
+
+.aro-hora {
+    position: relative;
+
+    width: 175px;
+    height: 175px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(116,183,216,0.75);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,255,255,0.98) 0%,
+            rgba(244,251,255,0.94) 45%,
+            rgba(221,242,252,0.7) 100%
+        );
+
+    box-shadow:
+        0 0 0 6px rgba(255,255,255,0.6),
+        0 0 0 7px rgba(168,214,236,0.42),
+        0 15px 40px rgba(62,139,180,0.14);
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+
+    animation:
+        aparecerHoraLujo 1s ease both;
+}
+
+.aro-interno {
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    border: 1px dashed rgba(126,188,216,0.65);
+
+    border-radius: 50%;
+}
+
+.aro-hora::before,
+.aro-hora::after {
+    content: "✦";
+
+    position: absolute;
+
+    color: #75afd0;
+
+    font-size: 10px;
+
+    opacity: 0.75;
+}
+
+.aro-hora::before {
+    top: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.aro-hora::after {
+    bottom: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+/* HORA */
+
+.hora-principal {
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.hora-principal strong {
+    font-family: "Playfair Display", serif;
+
+    font-size: 43px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    color: #315d78;
+
+    text-shadow:
+        0 3px 12px rgba(52,119,160,0.12);
+}
+
+.hora-principal small {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    color: #6792ad;
+}
+
+
+/* LINEA */
+
+.linea-hora {
+    width: 55px;
+
+    height: 1px;
+
+    margin: 18px auto 11px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #8fc5de,
+            transparent
+        );
+}
+
+.hora-lujo p {
+    margin: 0;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #6792ad;
+}
+
+
+/* DESTELLOS */
+
+.destello {
+    position: absolute;
+
+    color: #72b2d2;
+
+    font-size: 16px;
+
+    opacity: 0;
+
+    animation:
+        aparecerDestello 1.2s ease forwards,
+        brilloHora 3s ease-in-out infinite;
+}
+
+.destello-1 {
+    top: 25px;
+
+    left: 22%;
+
+    animation-delay:
+        0.3s,
+        1.5s;
+}
+
+.destello-2 {
+    top: 78px;
+
+    right: 12%;
+
+    font-size: 12px;
+
+    animation-delay:
+        0.6s,
+        1.8s;
+}
+
+.destello-3 {
+    bottom: 75px;
+
+    left: 14%;
+
+    font-size: 11px;
+
+    animation-delay:
+        0.9s,
+        2.1s;
+}
+
+.hora-lujo:hover .aro-hora {
+    transform: scale(1.035);
+
+    box-shadow:
+        0 0 0 6px rgba(255,255,255,0.7),
+        0 0 0 8px rgba(168,214,236,0.5),
+        0 20px 45px rgba(62,139,180,0.2);
+}
+
+
+/* ANIMACIONES HORA */
+
+@keyframes aparecerHoraLujo {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.82)
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+@keyframes aparecerDestello {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.3)
+            rotate(-25deg);
+    }
+
+    to {
+        opacity: 0.9;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+    }
+}
+
+@keyframes brilloHora {
+
+    0%,100% {
+        opacity: 0.45;
+
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scale(1.15);
+    }
+}
+
+
+/* ==================================================
+   CUENTA REGRESIVA
+   ENTRE HORA Y LUGAR
+================================================== */
+
+.cuenta-regresiva {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    /*
+       IMPORTANTE:
+       Está dentro de .datos,
+       por eso los márgenes son pequeños.
+    */
+
+    margin: 0 auto;
+
+    padding: 22px 18px 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.72),
+            rgba(231,247,255,0.48)
+        );
+
+    border: 1px solid rgba(168,214,236,0.65);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 32px rgba(62,139,180,0.08);
+
+    overflow: hidden;
+
+    animation:
+        aparecerCuenta 1s ease both;
+}
+
+
+/* DECORACION */
+
+.cuenta-regresiva::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 12px;
+
+    left: 18px;
+
+    font-size: 11px;
+
+    color: #78aec9;
+
+    animation:
+        brilloContador 3s ease-in-out infinite;
+}
+
+.cuenta-regresiva::after {
+    content: "✧";
+
+    position: absolute;
+
+    bottom: 12px;
+
+    right: 20px;
+
+    font-size: 13px;
+
+    color: #78aec9;
+
+    animation:
+        brilloContador 3s ease-in-out infinite;
+
+    animation-delay: 1s;
+}
+
+
+/* TEXTO SUPERIOR */
+
+.contador-pequeno {
+    margin: 0 0 5px;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #6792ad;
+}
+
+
+/* TITULO */
+
+.cuenta-regresiva h2 {
+    margin: 0 0 18px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    color: #315d78;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* CONTADOR */
+
+.contador {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    width: 100%;
+}
+
+
+/* BLOQUES */
+
+.tiempo {
+    min-width: 62px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 4px;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.65);
+
+    border: 1px solid rgba(168,214,236,0.45);
+
+    box-shadow:
+        0 5px 15px rgba(62,139,180,0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tiempo:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(62,139,180,0.11);
+}
+
+
+/* NUMEROS */
+
+.tiempo span {
+    font-family: "Playfair Display", serif;
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: #315d78;
+}
+
+
+/* ETIQUETAS */
+
+.tiempo small {
+    margin-top: 6px;
+
+    font-size: 6px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.2px;
+
+    color: #6792ad;
+}
+
+
+/* SEPARADORES */
+
+.separador {
+    font-family: "Playfair Display", serif;
+
+    font-size: 18px;
+
+    color: #8abbd3;
+
+    margin-top: -8px;
+}
+
+
+/* FECHA */
+
+.fecha-evento {
+    margin: 16px 0 0;
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    color: #6792ad;
+}
+
+
+/* MENSAJE */
+
+.mensaje-contador {
+    margin: 8px 0 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+
+    font-size: 11px;
+
+    color: #7b9caf;
+}
+
+
+/* ANIMACION */
+
+@keyframes aparecerCuenta {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes brilloContador {
+
+    0%,100% {
+        opacity: 0.35;
+
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scale(1.2);
+    }
+}
+
+
+/* ==================================================
+   CONFIRMACION
+================================================== */
+
+.confirmacion {
+    width: 100%;
+
+    max-width: 450px;
+
+    text-align: center;
+
+    margin-top: 10px;
+}
+
+.titulo-confirmacion {
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+
+    margin-bottom: 15px;
+}
+
+.invitado {
+    font-size: 17px;
+
+    margin-bottom: 25px;
+
+    line-height: 1.6;
+}
+
+.invitado strong {
+    font-weight: normal;
+
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+
+    margin-top: 5px;
+}
+
+
+/* WHATSAPP */
+
+.boton-whatsapp {
+    display: inline-block;
+
+    border: 1px solid #4f9bc5;
+
+    background: #5aa9d2;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    padding: 15px 28px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(62,139,180,0.15);
+
+    transition: 0.3s;
+}
+
+.boton-whatsapp:hover {
+    background: #347fa8;
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(62,139,180,0.25);
+}
+
+
+/* ==================================================
+   REPRODUCTOR DE MUSICA
+================================================== */
+
+.reproductor-musica {
+
+    position: fixed;
+
+    right: 22px;
+
+    bottom: 22px;
+
+    width: 220px;
+
+    height: 58px;
+
+    padding: 8px 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid rgba(117,175,208,0.28);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(36,91,130,0.12);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    z-index: 9999;
+}
+
+
+/* ICONO */
+
+.musica-icono {
+
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eaf7ff;
+
+    color: #5aa9d2;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* INFORMACION */
+
+.musica-info {
+
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.musica-info strong {
+
+    color: #315d78;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.musica-info span {
+
+    margin-top: 3px;
+
+    color: #7b9caf;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* BOTON MUSICA */
+
+.boton-musica {
+
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #5aa9d2;
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+    padding-left: 2px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.boton-musica:hover {
+
+    background: #347fa8;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 4px 12px rgba(52,127,168,0.22);
+}
+
+
+/* MUSICA REPRODUCIENDO */
+
+.reproductor-musica.reproduciendo .musica-icono {
+
+    animation:
+        musicaSuave 1.8s ease-in-out infinite;
+}
+
+@keyframes musicaSuave {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+
+/* ==================================================
+   PANTALLA GRANDE DE MUSICA
+================================================== */
+
+.pantalla-musica {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,0.96) 0%,
+            rgba(224,244,255,0.96) 45%,
+            rgba(185,222,241,0.98) 100%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.pantalla-musica.abierta {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* CERRAR */
+
+.cerrar-musica {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 28px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.65);
+
+    color: #315d78;
+
+    font-size: 27px;
+
+    font-weight: 300;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.cerrar-musica:hover {
+
+    background: rgba(255,255,255,0.9);
+
+    transform: rotate(90deg);
+}
+
+
+/* CONTENIDO */
+
+.musica-grande {
+
+    width: min(390px,100%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* PORTADA */
+
+.portada-musica {
+
+    width: 260px;
+    height: 260px;
+
+    margin-bottom: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #dff3ff 48%,
+            #9dcce5 100%
+        );
+
+    color: #5aa9d2;
+
+    font-family: Georgia, serif;
+
+    font-size: 90px;
+
+    box-shadow:
+        0 18px 45px rgba(36,91,130,0.18);
+
+    animation:
+        portadaFlotante 4s ease-in-out infinite;
+}
+
+@keyframes portadaFlotante {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* TEXTO MUSICA */
+
+.musica-pequena {
+
+    margin: 0 0 8px;
+
+    color: #6792ad;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.musica-grande h2 {
+
+    margin: 0;
+
+    color: #245b82;
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-weight: 500;
+}
+
+.musica-artista {
+
+    margin: 8px 0 25px;
+
+    color: #58758c;
+
+    font-size: 12px;
+}
+
+
+/* BARRA */
+
+.barra-progreso {
+
+    width: 100%;
+
+    height: 4px;
+
+    background: rgba(90,169,210,0.2);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.progreso-musica {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #5aa9d2;
+
+    border-radius: inherit;
+}
+
+
+/* TIEMPO */
+
+.tiempo-musica {
+
+    width: 100%;
+
+    margin-top: 7px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #7b9caf;
+
+    font-size: 8px;
+}
+
+
+/* VOLUMEN */
+
+.volumen-grande {
+
+    width: 180px;
+
+    margin-top: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.icono-volumen {
+
+    font-size: 13px;
+}
+
+#volumenMusica {
+
+    width: 135px;
+
+    height: 4px;
+
+    accent-color: #5aa9d2;
+
+    cursor: pointer;
+}
+
+
+/* BOTON GRANDE */
+
+.boton-musica-grande {
+
+    width: 58px;
+    height: 58px;
+
+    margin-top: 28px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #5aa9d2;
+
+    color: white;
+
+    font-size: 16px;
+
+    padding-left: 3px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 8px 20px rgba(52,127,168,0.2);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.boton-musica-grande:hover {
+
+    background: #347fa8;
+
+    transform: scale(1.06);
+}
+
+
+/* ==================================================
+   BOTONES
+================================================== */
+
+button {
+    position: relative;
+
+    overflow: hidden;
+}
+
+button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.6),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.6s;
+}
+
+button:hover::after {
+    left: 130%;
+}
+
+
+/* ==================================================
+   CELULARES
+================================================== */
+
+@media (max-width: 600px) {
+
+    .portada {
+        padding: 30px 20px;
+    }
+
+    .pequeno {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .nombre {
+        font-size: 18px;
+        letter-spacing: 6px;
+    }
+
+    .frase-portada {
+        font-size: 13px;
+    }
+
+    .informacion {
+        padding: 60px 20px;
+    }
+
+
+    /* CUENTA REGRESIVA */
+
+    .cuenta-regresiva {
+
+        margin: 0 auto;
+
+        padding: 20px 10px 18px;
+
+        border-radius: 21px;
+    }
+
+    .cuenta-regresiva h2 {
+
+        font-size: 23px;
+
+        margin-bottom: 16px;
+    }
+
+    .contador {
+
+        gap: 3px;
+    }
+
+    .tiempo {
+
+        min-width: 55px;
+
+        padding: 8px 2px;
+
+        border-radius: 12px;
+    }
+
+    .tiempo span {
+
+        font-size: 21px;
+    }
+
+    .tiempo small {
+
+        font-size: 5px;
+
+        letter-spacing: 0.8px;
+
+        margin-top: 5px;
+    }
+
+    .separador {
+
+        font-size: 16px;
+
+        margin-top: -7px;
+    }
+
+    .fecha-evento {
+
+        font-size: 7px;
+
+        letter-spacing: 1.3px;
+
+        margin-top: 13px;
+    }
+
+    .mensaje-contador {
+
+        font-size: 10px;
+
+        line-height: 1.4;
+    }
+
+
+    /* REPRODUCTOR */
+
+    .reproductor-musica {
+
+        right: 14px;
+
+        bottom: 14px;
+
+        width: 205px;
+
+        height: 52px;
+
+        padding: 7px 9px;
+
+        gap: 8px;
+
+        border-radius: 16px;
+    }
+
+    .musica-icono {
+
+        width: 32px;
+        height: 32px;
+
+        font-size: 17px;
+    }
+
+    .musica-info strong {
+        font-size: 9px;
+    }
+
+    .musica-info span {
+        font-size: 7px;
+    }
+
+    .boton-musica {
+
+        width: 31px;
+        height: 31px;
+
+        font-size: 9px;
+    }
+
+
+    /* PANTALLA MUSICA */
+
+    .pantalla-musica {
+        padding: 20px;
+    }
+
+    .cerrar-musica {
+
+        top: 18px;
+        right: 18px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 24px;
+    }
+
+    .portada-musica {
+
+        width: 230px;
+        height: 230px;
+
+        margin-bottom: 28px;
+
+        font-size: 75px;
+    }
+
+    .musica-grande h2 {
+        font-size: 27px;
+    }
+
+    .volumen-grande {
+
+        width: 170px;
+
+        margin-top: 16px;
+    }
+
+    #volumenMusica {
+        width: 125px;
+    }
+
+    .boton-musica-grande {
+
+        width: 54px;
+        height: 54px;
+    }
+
+}
